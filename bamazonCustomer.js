@@ -20,7 +20,7 @@ connection.connect(function (err) {
 })
 
 
-function printStuff(res) {
+function printStock(res) {
     var table = new Table({
         head: ['Item ID', 'Product Name', 'Department', 'Cost', 'Stock']
         , colWidths: [10, 40, 40, 8, 8]
@@ -37,7 +37,7 @@ function printStuff(res) {
 
 var startBuying = function () {
     connection.query('SELECT * FROM products', function (err, res) {
-        printStuff(res);
+        printStock(res);
         var choiceArray = [];
         for (var i = 0; i < res.length; i++) {
             choiceArray.push(res[i].product_name);
